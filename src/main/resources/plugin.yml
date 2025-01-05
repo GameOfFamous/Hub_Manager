@@ -1,0 +1,4 @@
+name: Hub_Manager
+version: '1.0-SNAPSHOT'
+main: fr.GameOfFamous.hub_Manager.Hub_Manager
+api-version: '1.20'
