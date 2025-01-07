@@ -1,6 +1,6 @@
 package fr.GameOfFamous.hub_Manager.Utils;
 
-import fr.gameoffamous.hellstyliaAPI.playerUtils.AccountManager;
+import fr.GameOfFamous.hellstylia_API.Manager.AccountManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;

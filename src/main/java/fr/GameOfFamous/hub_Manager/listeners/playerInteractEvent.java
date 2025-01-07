@@ -1,5 +1,6 @@
 package fr.GameOfFamous.hub_Manager.listeners;
 
+import fr.GameOfFamous.hub_Manager.Utils.menus.langueMenu;
 import fr.GameOfFamous.hub_Manager.Utils.menus.navMenu;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -24,6 +25,8 @@ public class playerInteractEvent implements Listener {
 
             navMenu.createNavMenu(p);
 
+        } else if (it.getType() == Material.PLAYER_HEAD && it.hasItemMeta() && it.getItemMeta().hasDisplayName() && it.getItemMeta().getDisplayName().equalsIgnoreCase("§cLangue")) {
+            langueMenu.openLangueMenu(p);
         }
 
     }

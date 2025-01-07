@@ -1,16 +1,16 @@
 package fr.GameOfFamous.hub_Manager;
 
+import fr.GameOfFamous.hellstylia_API.Hellstylia_API;
 import fr.GameOfFamous.hub_Manager.Utils.Board;
 import fr.GameOfFamous.hub_Manager.Utils.commands.CommandSpawn;
 import fr.GameOfFamous.hub_Manager.listeners.*;
-import fr.gameoffamous.hellstyliaAPI.HellstyliaAPI;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 
 public final class Hub_Manager extends JavaPlugin {
 
-    private HellstyliaAPI apiPlugin;
+    private Hellstylia_API apiPlugin;
     public static Hub_Manager INSTANCE;
 
     private BukkitTask task;
@@ -22,8 +22,8 @@ public final class Hub_Manager extends JavaPlugin {
 
         Plugin api = getServer().getPluginManager().getPlugin("HellstyliaAPI");
 
-        if (api instanceof HellstyliaAPI) {
-            this.apiPlugin = (HellstyliaAPI) api;
+        if (api instanceof Hellstylia_API) {
+            this.apiPlugin = (Hellstylia_API) api;
             getLogger().info("HellstyliaAPI détecté et initialisé !");
         } else {
             getLogger().severe("HellstyliaAPI introuvable !");

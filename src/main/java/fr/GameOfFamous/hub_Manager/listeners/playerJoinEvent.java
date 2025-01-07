@@ -1,7 +1,8 @@
 package fr.GameOfFamous.hub_Manager.listeners;
 
-import fr.gameoffamous.hellstyliaAPI.Utils.CreateItem;
-import fr.gameoffamous.hellstyliaAPI.playerUtils.AccountManager;
+import fr.GameOfFamous.hellstylia_API.Manager.AccountManager;
+import fr.GameOfFamous.hellstylia_API.Utils.CreateItem;
+import fr.GameOfFamous.hellstylia_API.Utils.SendMessage;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -30,8 +31,12 @@ public class playerJoinEvent implements Listener {
         p.teleport(spawn);
         p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 2));
 
+        p.getInventory().setItem(4, CreateItem.getSkull("§cLangue",new String[]{"§2Francais : 100%", "§2English : 0%", "§2Deutsch : 0%"},"eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGJhOGUwNTA4MTkyYTNlNTkyZTExZjY3NzAxMmZiMTg4OTVmNGZlNzQzZjg4MjdkOTJjNDMxMDJiODQ4YjBmZSJ9fX0="));
         p.getInventory().setItem(0, CreateItem.newItem(Material.COMPASS, 1, "§cNavigation", false, new String[]{}));
         p.getInventory().setItem(8, PlayerVisibilityToggle.createHidePlayersItem());
+
+        SendMessage.sendTitle(p, "§cHellstylia", "§6Aucun serveur en ligne");
+        SendMessage.sendClickableMessage(p, "§dVisitez nôtre discord pour plus d'informations ! Click ici !", "https://discord.gg/JU5QP2fCVG");
     }
 
 }

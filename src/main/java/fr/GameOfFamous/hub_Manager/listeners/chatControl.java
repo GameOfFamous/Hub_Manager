@@ -1,6 +1,6 @@
 package fr.GameOfFamous.hub_Manager.listeners;
 
-import fr.gameoffamous.hellstyliaAPI.playerUtils.AccountManager;
+import fr.GameOfFamous.hellstylia_API.Manager.AccountManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

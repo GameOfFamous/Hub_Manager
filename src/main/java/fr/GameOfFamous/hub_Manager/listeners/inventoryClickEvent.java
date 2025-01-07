@@ -2,9 +2,9 @@ package fr.GameOfFamous.hub_Manager.listeners;
 
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
+import fr.GameOfFamous.hellstylia_API.Manager.AccountManager;
 import fr.GameOfFamous.hub_Manager.Hub_Manager;
 import fr.GameOfFamous.hub_Manager.Utils.menus.*;
-import fr.gameoffamous.hellstyliaAPI.playerUtils.AccountManager;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -50,8 +50,30 @@ public class inventoryClickEvent implements Listener {
                     break;
 
                 case RED_BED:
-                    p.closeInventory();
+                    if(!p.hasPermission("server.*")) {
+                        p.closeInventory();
+                        p.sendMessage("§a[§2Hellstylia§a]§c Vous n'avez pas le grade pour rejoindre ce serveur.");
+                        break;
+                    }
                     BedwarsMenu.openBedwarsMenu(p);
+                    break;
+
+                case DIAMOND_SWORD:
+                    if(!p.hasPermission("server.*")) {
+                        p.closeInventory();
+                        p.sendMessage("§a[§2Hellstylia§a]§c Vous n'avez pas le grade pour rejoindre ce serveur.");
+                        break;
+                    }
+                    connectToServer(p, "murder", out);
+                    break;
+
+                case ZOMBIE_HEAD:
+                    if(!p.hasPermission("server.*")) {
+                        p.closeInventory();
+                        p.sendMessage("§a[§2Hellstylia§a]§c Vous n'avez pas le grade pour rejoindre ce serveur.");
+                        break;
+                    }
+                    connectToServer(p, "monster", out);
                     break;
 
                 case BARRIER:
@@ -60,10 +82,7 @@ public class inventoryClickEvent implements Listener {
 
                 case PLAYER_HEAD:
                     String displayName = current.getItemMeta() != null ? current.getItemMeta().getDisplayName() : "";
-                    if (displayName.equals("§cLangue")) {
-                        p.closeInventory();
-                        langueMenu.openLangueMenu(p);
-                    } else if (displayName.equals(p.getDisplayName())) {
+                    if (displayName.equals(p.getDisplayName())) {
                         p.closeInventory();
                         playerMenu.openPlayerMenu(p);
                     }
@@ -76,8 +95,10 @@ public class inventoryClickEvent implements Listener {
         if (e.getView().getTitle().equalsIgnoreCase("§7Langue")) {
             e.setCancelled(true);
 
-            if (current == null || current.getItemMeta() == null || current.getItemMeta().getDisplayName() == null) {
+            if (current == null || current.getItemMeta() == null) {
                 return; // Sécurité : empêche les erreurs si l'item ou ses métadonnées sont null
+            } else {
+                current.getItemMeta().getDisplayName();
             }
 
             String displayName = current.getItemMeta().getDisplayName();

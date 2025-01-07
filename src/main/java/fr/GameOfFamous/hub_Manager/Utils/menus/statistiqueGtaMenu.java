@@ -1,7 +1,7 @@
 package fr.GameOfFamous.hub_Manager.Utils.menus;
 
-import fr.gameoffamous.hellstyliaAPI.Utils.CreateItem;
-import fr.gameoffamous.hellstyliaAPI.playerUtils.AccountManager;
+import fr.GameOfFamous.hellstylia_API.Manager.AccountManager;
+import fr.GameOfFamous.hellstylia_API.Utils.CreateItem;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
