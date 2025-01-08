@@ -1,7 +1,7 @@
 name: Hub_Manager
-version: '1.0-SNAPSHOT'
+version: 1.0-SNAPSHOT
 main: fr.GameOfFamous.hub_Manager.Hub_Manager
-api-version: '1.20'
+api-version: 1.20
 commands:
   spawn:
 permissions:
@@ -12,4 +12,4 @@ permissions:
     children:
       cmd.setstaff: true
 depend:
-  - HellstyliaAPI
+  - Hellstylia_API
